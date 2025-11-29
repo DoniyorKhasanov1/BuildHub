@@ -1,0 +1,50 @@
+spring:
+  application:
+    name: buildhub
+
+  datasource:
+    url: jdbc:postgresql://localhost:5432/buildhub
+    username: postgres
+    password: linux
+    driver-class-name: org.postgresql.Driver
+
+  jpa:
+    hibernate:
+      ddl-auto: update
+    show-sql: true
+    properties:
+      hibernate:
+        dialect: org.hibernate.dialect.PostgreSQLDialect
+        format_sql: true
+    open-in-view: true
+
+  output:
+    ansi:
+      enabled: ALWAYS
+
+server:
+  port: 8080
+
+logging:
+  level:
+    org.hibernate.SQL: DEBUG
+    org.hibernate.orm.jdbc.bind: TRACE
+    org.hibernate.type.descriptor.sql.BasicBinder: TRACE
+    org.task.buildhub: DEBUG
+
+app:
+  jwt:
+    secret: dqpstYzvFdljoZ7WamkixLQ8uDesnSMMf4xIhntlxn7rm72m062euaW4cWMktvKFUggqsMcM7ElqX7b6yuWHOwik
+    expiration: 86400000
+  default-currency: UZS
+  tax-rate: 12.0
+
+springdoc:
+  api-docs:
+    path: /v3/api-docs
+  swagger-ui:
+    path: /swagger-ui.html
+    enabled: true
+
+main:
+  allow-circular-references: false
