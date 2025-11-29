@@ -33,6 +33,9 @@ public class User implements UserDetails {
     private String phone;
     private String role;
 
+    @Column(unique = true, nullable = false)
+    private String inn;
+
     private boolean enabled = true;
     private LocalDateTime createdAt;
     private LocalDateTime updatedAt;
